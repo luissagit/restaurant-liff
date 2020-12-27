@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Foodee",
+  "name": "Foodee - Pesan Makanan Sepuasnya",
   "icons": [
     {
       "src": "favicon.ico",

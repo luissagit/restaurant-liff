@@ -3,6 +3,7 @@ import { FoodOrderContext } from '../../contexts/foodOrderContext';
 import CurrencyConverter from '../../lib/currencyConverter';
 import { NavLink } from 'react-router-dom';
 import ConfirmButton from './confirmButton';
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
 	const { foods, dispatch } = useContext(FoodOrderContext);
@@ -58,6 +59,12 @@ const Cart = () => {
 
 	return(
 		<div className="mx-4 shadow-md rounded-md px-4 py-8 bg-white">
+			<Helmet>
+				<title>Keranjang - Foodee - Makan Murah Sepuasnya</title>
+				<meta name="title" content="Profil - Foodee - Makan Murah Sepuasnya" />
+				<meta name="description" content="Foodee adalah tempat mencari serta memesan makanan secara online sepuasnya, dengan harga terjangkau." />
+			</Helmet>
+
 			<h2 className="font-semibold text-xl">Keranjang Belanja</h2>
 			<div className="mt-4">
 				{

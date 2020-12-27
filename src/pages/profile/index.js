@@ -1,5 +1,6 @@
 import { useState, useContext, memo } from 'react';
 import { AddressContext } from '../../contexts/addressContext';
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
 	const { address, dispatch } = useContext(AddressContext);
@@ -13,6 +14,12 @@ const Profile = () => {
 
 	return(
 		<div className="mx-4 shadow-md rounded-md px-4 py-8 bg-white">
+			<Helmet>
+				<title>Foodee - Makan Murah Sepuasnya</title>
+				<meta name="title" content="Profil - Foodee - Makan Murah Sepuasnya" />
+				<meta name="description" content="Foodee adalah tempat mencari serta memesan makanan secara online sepuasnya, dengan harga terjangkau." />
+			</Helmet>
+
 			<div className="flex justify-start items-center mb-4">
 				<div className="rounded-full bg-gray-400 w-12 h-12"></div>
 				<div className="font-semibold text-lg ml-4">name</div>
