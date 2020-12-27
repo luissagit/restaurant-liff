@@ -4,9 +4,9 @@ import { AddressReducer } from '../reducers/addressReducer';
 export const AddressContext = createContext();
 
 const AddressContextProvider = (props) => {
-	const [address, dispatch] = useReducer(AddressReducer, {}, () => {
+	const [address, dispatch] = useReducer(AddressReducer, '', () => {
 		const localData = localStorage.getItem('address');
-		return localData ? JSON.parse(localData) : {};
+		return localData ? JSON.parse(localData) : '';
 	});
 
 	useEffect(() => {

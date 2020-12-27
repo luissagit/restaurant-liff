@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 const Profile = () => {
 	const { address, dispatch } = useContext(AddressContext);
 	const [edit, setEdit] = useState(false);
-	const [newAddress, setNewAddress] = useState(address.address ? (address.address) : (''));
+	const [newAddress, setNewAddress] = useState(address ? (address) : (''));
 
 	const saveNewAddress = () => {
 		dispatch({type: 'EDIT_ADDRESS', newAddress: newAddress});
@@ -44,7 +44,7 @@ const Profile = () => {
 						</div>
 					) : (
 						<div className="font-light">
-							{address.address ? (address.address) : ('')}
+							{address ? (address) : ('')}
 						</div>
 					)
 				}
