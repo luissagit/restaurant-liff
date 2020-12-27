@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { render } from 'react-snapshot';
 
-render(
+ReactDOM.render(
     <App />,
   document.getElementById('root')
 );
