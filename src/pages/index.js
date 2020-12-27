@@ -13,7 +13,7 @@ const Pages = () => {
 			<header>
 				<Header />
 			</header>
-			<main className="pt-56 pb-6">
+			<main className="pt-56 pb-6 min-h-screen">
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route path='/home' component={Home} />
@@ -24,7 +24,7 @@ const Pages = () => {
 				</Switch>
 			</main>
 			<footer>
-				tes
+				
 			</footer>
 		</div>
 	);

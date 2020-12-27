@@ -25,7 +25,7 @@ const FoodDetail = (props) => {
 	}, [foodId]);
 
 	return(
-		<div>
+		<div className="pb-14">
 			<Detail data={data} loading={loading} />
 		</div>
 	);

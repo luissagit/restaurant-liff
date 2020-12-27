@@ -13,15 +13,22 @@ const Detail = ({ data, loading }) => {
 	const { foods } = useContext(FoodOrderContext);
 
 	useEffect(() => {
-		foods.filter((food) => {
-			if(food.id === data.id) {
+		if(!loading) {
+			if(foods.some(food => food.id === data.id)) {
 				setInCart(true);
 			} else {
 				setInCart(false);
 			}
-			return food;
-		})
-	}, [data.id, foods]);
+		}
+	}, [data.id, foods, loading]);
+
+	const CategoryPointer = () => {
+		return(
+			<p className="mt-4">
+				Telusuri menu lain dalam <NavLink to={'/category/' + category}><span className="font-semibold text-green">{category}</span></NavLink>
+			</p>
+		);
+	}
 
 
 	return(
@@ -48,9 +55,9 @@ const Detail = ({ data, loading }) => {
 				<p className="mt-4">
 					{data.description}
 				</p>
-				<p className="mt-4">
-					Telusuri menu lain dalam <NavLink to={'/category/' + category}><span className="font-semibold text-green">{category}</span></NavLink>
-				</p>
+				{
+					!!loading ? ('') : (<CategoryPointer />)
+				}
 			</div>
 		</div>
 	);

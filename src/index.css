@@ -53,3 +53,10 @@
     -webkit-transform: scale(1.0);
   }
 }
+
+.slick-slide > div {
+  margin: 0 5px;
+}
+.slick-list {
+  margin: 0 -5px;
+}

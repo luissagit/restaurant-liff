@@ -1,6 +1,8 @@
 import { memo, useContext, useState, useEffect } from 'react';
 import { FoodOrderContext } from '../../contexts/foodOrderContext';
 import CurrencyConverter from '../../lib/currencyConverter';
+import { NavLink } from 'react-router-dom';
+import ConfirmButton from './confirmButton';
 
 const Cart = () => {
 	const { foods, dispatch } = useContext(FoodOrderContext);
@@ -63,7 +65,9 @@ const Cart = () => {
 						return(
 							<div className="flex justify-between items-center mb-2" key={index}>
 								<div>
-									<h3 className="font-semibold text-lg">{food.name}</h3>
+									<NavLink to={'/food/' + food.id} >
+										<h3 className="font-semibold text-lg text-green">{food.name}</h3>
+									</NavLink>
 									<p className="font-light">{CurrencyConverter(food.price)}</p>
 								</div>
 								<div className="flex justify-between items-center">
@@ -79,6 +83,7 @@ const Cart = () => {
 			<div className="mt-4">
 				<p className="text-lg">total : {CurrencyConverter(total)}</p>
 			</div>
+			<ConfirmButton />
 		</div>
 	);
 }
