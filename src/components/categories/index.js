@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Card from '../card';
 import Skeleton from '../skeleton';
 
@@ -31,4 +32,4 @@ const Categories = ({ categories, loading }) => {
 	);
 }
 
-export default Categories;
+export default memo(Categories);

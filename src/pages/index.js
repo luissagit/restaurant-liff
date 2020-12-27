@@ -1,8 +1,11 @@
+import { memo } from 'react';
 import Header from '../components/header';
 import { Switch, Route } from 'react-router-dom';
 import Home from './home';
 import FoodsByCategory from './foodsByCategory';
 import FoodDetail from './foodDetail';
+import Profile from './profile';
+import Cart from './cart';
 
 const Pages = () => {
 	return(
@@ -16,6 +19,8 @@ const Pages = () => {
 					<Route path='/home' component={Home} />
 					<Route path='/category/:categoryId' component={FoodsByCategory} />
 					<Route path='/food/:foodId' component={FoodDetail} />
+					<Route path='/profile' component={Profile} />
+					<Route path='/cart' component={Cart} />
 				</Switch>
 			</main>
 			<footer>
@@ -25,4 +30,4 @@ const Pages = () => {
 	);
 }
 
-export default Pages;
+export default memo(Pages);

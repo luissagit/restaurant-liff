@@ -2,6 +2,7 @@ import CurrencyConverter from '../../lib/currencyConverter';
 import { NavLink } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { memo } from 'react';
 
 const Card = ({ data, category, detail }) => {
 	const imageStyle = () => {
@@ -55,4 +56,4 @@ const Card = ({ data, category, detail }) => {
 
 }
 
-export default Card;
+export default memo(Card);

@@ -1,22 +1,28 @@
 import { NavLink } from 'react-router-dom';
-import CurrencyConverter from '../../lib/currencyConverter';
-import { useState } from 'react';
+import { useContext, memo, useState, useEffect } from 'react';
 import Loading from '../loading';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { FoodOrderContext } from '../../contexts/foodOrderContext';
+import CurrencyConverter from '../../lib/currencyConverter';
+import CartButton from './cartButton';
 
 const Detail = ({ data, loading }) => {
-	const [quantity, setQuantity] = useState(0);
-
 	const category = data.categories ? (data.categories[0].name) : ('');
+	const [inCart, setInCart] = useState(null);
+	const { foods } = useContext(FoodOrderContext);
 
-	if(quantity < 0) {
-		setQuantity(0);
-	}
+	useEffect(() => {
+		foods.filter((food) => {
+			if(food.id === data.id) {
+				setInCart(true);
+			} else {
+				setInCart(false);
+			}
+			return food;
+		})
+	}, [data.id, foods]);
 
-	if(quantity > 5) {
-		setQuantity(5);
-	}
 
 	return(
 		<div className="mx-4 shadow-md rounded-md px-4 py-8 bg-white">
@@ -29,24 +35,16 @@ const Detail = ({ data, loading }) => {
 					)
 				}
 			</div>
+			<div className="flex justify-between items-center mt-4">
+				<h2 className="font-semibold text-xl">
+					{data.name}
+				</h2>
+				<p className="font-light text-lg">
+					{!!data.price ? (CurrencyConverter(data.price)) : ('')}
+				</p>
+			</div>
 			<div className="mt-4">
-				<div className="flex justify-between items-center">
-					<h2 className="text-xl font-bold">
-						{data.name}
-					</h2>
-					<p className="mt-2 text-right">
-						{quantity > 0 ? (CurrencyConverter(data.price*quantity)) : (CurrencyConverter(data.price))}
-					</p>
-				</div>
-				<div className="mt-4 flex justify-end">
-					<button className="w-8 h-10 bg-green text-white font-semibold text-xl rounded-lg" onClick={() => setQuantity(quantity-1)}>
-						-
-					</button>
-					<div className="w-10 h-10 font-semibold text-xl flex items-center justify-center">{quantity}</div>
-					<button className="w-8 h-10 bg-green text-white font-semibold text-xl rounded-lg" onClick={() => setQuantity(quantity+1)}>
-						+
-					</button>
-				</div>
+				<CartButton loading={loading} inCart={inCart} data={data} />
 				<p className="mt-4">
 					{data.description}
 				</p>
@@ -58,4 +56,4 @@ const Detail = ({ data, loading }) => {
 	);
 }
 
-export default Detail;
+export default memo(Detail);

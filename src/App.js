@@ -1,12 +1,18 @@
 import Pages from './pages';
 import { BrowserRouter } from 'react-router-dom';
+import AddressContextProvider from './contexts/addressContext';
+import FoodOrderContextProvider from './contexts/foodOrderContext';
 
 function App() {
   return (
     <div className="App">
-    	<BrowserRouter>
-    		<Pages />
-    	</BrowserRouter>
+    	<AddressContextProvider>
+    		<FoodOrderContextProvider>
+    			<BrowserRouter>
+		    		<Pages />
+		    	</BrowserRouter>
+    		</FoodOrderContextProvider>
+    	</AddressContextProvider>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Card from '../card';
 import Skeleton from '../skeleton';
 
@@ -28,4 +29,4 @@ const Recommendation = ({ recommendations, loading }) => {
 	);
 }
 
-export default Recommendation;
+export default memo(Recommendation);

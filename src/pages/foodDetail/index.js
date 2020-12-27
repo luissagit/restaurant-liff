@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import ENDPOINT from '../../lib/ENDPOINT';
 import FetchData from '../../lib/fetchData';
 import Detail from '../../components/detail';
@@ -31,4 +31,4 @@ const FoodDetail = (props) => {
 	);
 }
 
-export default FoodDetail;
+export default memo(FoodDetail);

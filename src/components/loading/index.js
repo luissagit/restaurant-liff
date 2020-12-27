@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 const Loading = () => {
 	return(
 		<div className="spinner">
@@ -7,4 +9,4 @@ const Loading = () => {
 	);
 }
 
-export default Loading;
+export default memo(Loading);

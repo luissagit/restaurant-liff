@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Card from '../card';
 import Loading from '../loading';
 
@@ -41,4 +42,4 @@ const List = ({ datas, all, category, loading }) => {
 	);
 }
 
-export default List;
+export default memo(List);

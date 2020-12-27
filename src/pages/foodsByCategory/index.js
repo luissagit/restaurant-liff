@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import ENDPOINT from '../../lib/ENDPOINT';
 import FetchData from '../../lib/fetchData';
 import List from '../../components/list';
@@ -31,4 +31,4 @@ const FoodsByCategory = (props) => {
 	);
 }
 
-export default FoodsByCategory;
+export default memo(FoodsByCategory);

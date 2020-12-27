@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 const Skeleton = ({ type }) => {
 	const imageStyle = () => {
 		if(type === 'categories') {
@@ -26,4 +28,4 @@ const Skeleton = ({ type }) => {
 	);
 }
 
-export default Skeleton;
+export default memo(Skeleton);

@@ -1,5 +1,6 @@
 import Hero from '../hero';
 import Profile from '../profile';
+import { memo } from 'react';
 
 const Header = () => {
 	return(
@@ -10,4 +11,4 @@ const Header = () => {
 	);
 }
 
-export default Header;
+export default memo(Header);

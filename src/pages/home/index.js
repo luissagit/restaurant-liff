@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import Recommendation from '../../components/recommendation';
 import Categories from '../../components/categories';
 import List from '../../components/list';
@@ -42,4 +42,4 @@ const Home = () => {
 	);
 }
 
-export default Home;
+export default memo(Home);
